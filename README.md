@@ -1,13 +1,18 @@
-# React + Vite
+# 🍔 Calculadora de Hambúrguer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto React criado para calcular a quantidade e o custo dos ingredientes necessários para produzir hambúrgueres artesanais.
 
-Currently, two official plugins are available:
+## 📦 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Escolha a **quantidade de hambúrgueres**
+- Selecione o **peso de cada hambúrguer** (130g, 150g, 180g, 200g)
+- Calcula automaticamente o peso de cada tipo de carne necessário:
+  - **Fraudinha** (30%)
+  - **Patinho** (30%)
+  - **Capa de Filé** (40%)
+- Permite inserir o **valor por quilo de cada tipo de carne**
+- Exibe o **custo total** com base nos insumos informados
 
-## Expanding the ESLint configuration
+## 🚀 Como acessar o projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# calculator_burguer
+https://burguer.console.log.br
