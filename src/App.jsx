@@ -13,13 +13,13 @@ function App() {
   const [numberBuguers, setNumberBuguers] = useState(0);
   const [weightBuguers, setweightBuguers] = useState(0);
 
-  const [weightFraudinha, setWeightFraudinha] = useState(0);
+  const [weightFraldinha, setWeightFraldinha] = useState(0);
   const [weightPatinho, setWeightPatinho] = useState(0);
   const [weightCapa, setWeightCapa] = useState(0);
 
 
   useEffect(() => {
-    setWeightFraudinha((weightBuguers * numberBuguers * 0.3).toFixed(0));
+    setWeightFraldinha((weightBuguers * numberBuguers * 0.3).toFixed(0));
     setWeightPatinho((weightBuguers * numberBuguers * 0.3).toFixed(0));
     setWeightCapa((weightBuguers * numberBuguers * 0.4).toFixed(0));
   }, [numberBuguers, weightBuguers]);
@@ -104,10 +104,10 @@ function App() {
         </FormControl>
 
         <div className="meat_info">
-          <h4>Fraudinha</h4>
+          <h4>Fraldinha</h4>
 
           <Chip
-            label={`${weightFraudinha} g`}
+            label={`${weightFraldinha} g`}
             color="primary"
             sx={{
               fontSize: "1rem",
