@@ -17,9 +17,6 @@ function App() {
   const [weightPatinho, setWeightPatinho] = useState(0);
   const [weightCapa, setWeightCapa] = useState(0);
 
-  // const [priceFraudinha, setPriceFraudinha] = useState(0);
-  // const [pricePatinho, setPricePatinho] = useState(0);
-  // const [priceCapa, setPriceCapa] = useState(0);
 
   useEffect(() => {
     setWeightFraudinha((weightBuguers * numberBuguers * 0.3).toFixed(0));
@@ -55,11 +52,14 @@ function App() {
           InputProps={{
             sx: {
               color: "#fff", // cor do texto digitado
+              height: "70px", // altura do campo
+              paddingTop: "5px", // para centralizar o texto verticalmente
             },
           }}
           InputLabelProps={{
             sx: {
               color: "#fff", // cor do label flutuante
+              textAlign: "center", // centraliza o texto do label
             },
           }}
         />
@@ -88,6 +88,8 @@ function App() {
             onChange={(e) => setweightBuguers(e.target.value)}
             sx={{
               color: "#fff", // texto selecionado
+              height: "70px", // altura do campo
+              paddingTop: "5px", // para centralizar o texto verticalmente
             }}
             // Para mudar cor do ícone (setinha do select)
             IconComponentProps={{
@@ -113,29 +115,7 @@ function App() {
               width: "50%",
             }}
           />
-          {/* <TextField
-            id="filled-basic"
-            label="Valor Kg"
-            variant="filled"
-            value={priceFraudinha}
-            type="number"
-            onChange={(e) => setPriceFraudinha(e.target.value)}
-            sx={{
-              backgroundColor: "#1f1f1f", // cor de fundo do campo inteiro
-              m: 1,
-            width: "100%"
-            }}
-            InputProps={{
-              sx: {
-                color: "#fff", // cor do texto digitado
-              },
-            }}
-            InputLabelProps={{
-              sx: {
-                color: "#1976d2", // cor do label flutuante
-              },
-            }}
-          /> */}
+         
         </div>
 
         <div className="meat_info">
@@ -150,29 +130,7 @@ function App() {
               width: "50%",
             }}
           />
-          {/* <TextField
-            id="filled-basic"
-            label="Valor Kg"
-            variant="filled"
-            type="number"
-            value={pricePatinho}
-            onChange={(e) => setPricePatinho(e.target.value)}
-            sx={{
-              backgroundColor: "#1f1f1f", // cor de fundo do campo inteiro
-              m: 1,
-            width: "100%"
-            }}
-            InputProps={{
-              sx: {
-                color: "#fff", // cor do texto digitado
-              },
-            }}
-            InputLabelProps={{
-              sx: {
-                color: "#1976d2", // cor do label flutuante
-              },
-            }}
-          /> */}
+        
         </div>
 
         <div className="meat_info">
@@ -186,29 +144,7 @@ function App() {
               width: "50%",
             }}
           />
-          {/* <TextField
-            id="filled-basic"
-            label="Valor Kg"
-            variant="filled"
-            value={priceCapa}
-            type="number"
-            onChange={(e) => setPriceCapa(e.target.value)}
-            sx={{
-              backgroundColor: "#1f1f1f", // cor de fundo do campo inteiro
-              m: 1,
-            width: "100%"
-            }}
-            InputProps={{
-              sx: {
-                color: "#fff", // cor do texto digitado
-              },
-            }}
-            InputLabelProps={{
-              sx: {
-                color: "#1976d2", // cor do label flutuante
-              },
-            }}
-          /> */}
+         
         </div>
       </div>
     </>
