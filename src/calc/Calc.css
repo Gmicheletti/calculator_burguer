@@ -1,10 +1,12 @@
-#calculator{
+#calculator {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  margin-top: 50px;
+
 }
-.meat_info{
+.meat_info {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,7 +16,7 @@
   border-bottom: 1px solid #cdcdcd26;
 }
 
-.total{
+.total {
   display: flex;
   flex-direction: row;
   align-items: center;

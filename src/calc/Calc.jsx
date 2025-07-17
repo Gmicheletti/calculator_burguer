@@ -10,39 +10,48 @@ import Chip from "@mui/material/Chip";
 import "./Calc.css";
 
 export default function Calc() {
-  const [numberBuguers, setNumberBuguers] = useState(0);
-  const [weightBuguers, setweightBuguers] = useState(0);
+  const [numberBurguers, setNumberBurguers] = useState(0);
+  const [weightBurguers, setweightBurguers] = useState(0);
+  const stored_numberBurguers = localStorage.getItem("numberBurguers");
+  const stored_weightBurguers = localStorage.getItem("weightBurguers");
 
   const [weightFraldinha, setWeightFraldinha] = useState(0);
   const [weightPatinho, setWeightPatinho] = useState(0);
   const [weightCapa, setWeightCapa] = useState(0);
 
+
   useEffect(() => {
-    setWeightFraldinha((weightBuguers * numberBuguers * 0.3).toFixed(0));
-    setWeightPatinho((weightBuguers * numberBuguers * 0.3).toFixed(0));
-    setWeightCapa((weightBuguers * numberBuguers * 0.4).toFixed(0));
-  }, [numberBuguers, weightBuguers]);
+      try {
+        if (stored_numberBurguers && stored_weightBurguers) {
+          const stored_number = JSON.parse(stored_numberBurguers);
+          setNumberBurguers(stored_number);
+
+          const stored_weight = JSON.parse(stored_weightBurguers);
+          setweightBurguers(stored_weight);
+        }
+      } catch (error) {
+        console.error("Erro ao ler localStorage:", error);
+      }
+    }, []);
+
+  useEffect(() => {
+    setWeightFraldinha((weightBurguers * numberBurguers * 0.3).toFixed(0));
+    setWeightPatinho((weightBurguers * numberBurguers * 0.3).toFixed(0));
+    setWeightCapa((weightBurguers * numberBurguers * 0.4).toFixed(0));
+    localStorage.setItem("numberBurguers", JSON.stringify(numberBurguers));
+    localStorage.setItem("weightBurguers", JSON.stringify(weightBurguers));
+  }, [numberBurguers, weightBurguers]);
 
   return (
     <>
-      
-      <div
-        id="calculator"
-        style={{
-          padding: 16,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <h1>CalcBurguer</h1>
+      <div id="calculator">
         <TextField
           id="filled-basic"
           label="Quantidade de Burguers"
           variant="filled"
-          value={numberBuguers}
+          value={numberBurguers}
           type="number"
-          onChange={(e) => setNumberBuguers(e.target.value)}
+          onChange={(e) => setNumberBurguers(e.target.value)}
           fullWidth
           sx={{
             backgroundColor: "#1f1f1f", // cor de fundo do campo inteiro
@@ -83,9 +92,9 @@ export default function Calc() {
           <Select
             labelId="demo-simple-select-filled-label"
             id="demo-simple-select-filled"
-            value={weightBuguers}
+            value={weightBurguers}
             label="Tamanho do Hambúrguer"
-            onChange={(e) => setweightBuguers(e.target.value)}
+            onChange={(e) => setweightBurguers(e.target.value)}
             sx={{
               color: "#fff", // texto selecionado
               height: "70px", // altura do campo
@@ -112,7 +121,7 @@ export default function Calc() {
             sx={{
               fontSize: "1rem",
               fontWeight: "bold",
-              width: "50%",
+              width: "200px",
             }}
           />
         </div>
@@ -126,7 +135,7 @@ export default function Calc() {
             sx={{
               fontSize: "1rem",
               fontWeight: "bold",
-              width: "50%",
+              width: "200px",
             }}
           />
         </div>
@@ -139,7 +148,7 @@ export default function Calc() {
             sx={{
               fontSize: "1rem",
               fontWeight: "bold",
-              width: "50%",
+              width: "200px",
             }}
           />
         </div>

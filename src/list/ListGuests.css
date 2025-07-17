@@ -1,0 +1,18 @@
+#listGuests{
+    margin-top: 50px;
+}
+
+#controlPlusPeople{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.item_list{
+    border-bottom: 1px solid #cdcdcd26;
+}
+
+.item_list:hover{
+   background-color:  #3e3e3e3e;
+}

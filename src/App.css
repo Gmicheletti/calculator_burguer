@@ -5,16 +5,5 @@
   text-align: center;
 }
 
-#app{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem; 
-}
 
-@media (max-width: 768px) {
-  #app {
-    flex-direction: column;
-  }
-}
+#app{}
