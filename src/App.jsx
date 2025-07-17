@@ -22,9 +22,9 @@ function App() {
   // const [priceCapa, setPriceCapa] = useState(0);
 
   useEffect(() => {
-    setWeightFraudinha((weightBuguers * numberBuguers * 0.3).toFixed(2));
-    setWeightPatinho((weightBuguers * numberBuguers * 0.3).toFixed(2));
-    setWeightCapa((weightBuguers * numberBuguers * 0.4).toFixed(2));
+    setWeightFraudinha((weightBuguers * numberBuguers * 0.3).toFixed(0));
+    setWeightPatinho((weightBuguers * numberBuguers * 0.3).toFixed(0));
+    setWeightCapa((weightBuguers * numberBuguers * 0.4).toFixed(0));
   }, [numberBuguers, weightBuguers]);
 
   return (
@@ -69,7 +69,7 @@ function App() {
           sx={{
             backgroundColor: "#1f1f1f", // fundo do select
             m: 1,
-            width: "100%"
+            width: "100%",
           }}
         >
           <InputLabel
@@ -102,9 +102,17 @@ function App() {
         </FormControl>
 
         <div className="meat_info">
-          <p>Fraudinha</p>
+          <h4>Fraudinha</h4>
 
-          <Chip label={`${weightFraudinha} g`} color="primary" />
+          <Chip
+            label={`${weightFraudinha} g`}
+            color="primary"
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              width: "20%",
+            }}
+          />
           {/* <TextField
             id="filled-basic"
             label="Valor Kg"
@@ -131,9 +139,17 @@ function App() {
         </div>
 
         <div className="meat_info">
-          <p>Patinho</p>
+          <h4>Patinho</h4>
 
-          <Chip label={`${weightPatinho} g`} color="primary" />
+          <Chip
+            label={`${weightPatinho} g`}
+            color="primary"
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              width: "20%",
+            }}
+          />
           {/* <TextField
             id="filled-basic"
             label="Valor Kg"
@@ -160,8 +176,16 @@ function App() {
         </div>
 
         <div className="meat_info">
-          <p>Capa de Filé</p>
-          <Chip label={`${weightCapa} g`} color="primary" />
+          <h4>Capa de Filé</h4>
+          <Chip
+            label={`${weightCapa} g`}
+            color="primary"
+            sx={{
+              fontSize: "1rem",
+              fontWeight: "bold",
+              width: "20%",
+            }}
+          />
           {/* <TextField
             id="filled-basic"
             label="Valor Kg"
