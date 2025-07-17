@@ -29,7 +29,7 @@ function App() {
 
   return (
     <>
-      <h1>Calculadora Hamburguer</h1>
+      <h1>CalcBurguer</h1>
       <div
         id="calculator"
         style={{
@@ -41,7 +41,7 @@ function App() {
       >
         <TextField
           id="filled-basic"
-          label="Quantidade de Hamburgueres"
+          label="Quantidade de Burguers"
           variant="filled"
           value={numberBuguers}
           type="number"
@@ -59,7 +59,7 @@ function App() {
           }}
           InputLabelProps={{
             sx: {
-              color: "#1976d2", // cor do label flutuante
+              color: "#fff", // cor do label flutuante
             },
           }}
         />
@@ -75,10 +75,10 @@ function App() {
           <InputLabel
             id="demo-simple-select-filled-label"
             sx={{
-              color: "#1976d2", // cor do label
+              color: "#fff", // cor do label
             }}
           >
-            Tamanho do Hamburguer
+            Tamanho do Burguer
           </InputLabel>
           <Select
             labelId="demo-simple-select-filled-label"
@@ -110,7 +110,7 @@ function App() {
             sx={{
               fontSize: "1rem",
               fontWeight: "bold",
-              width: "20%",
+              width: "50%",
             }}
           />
           {/* <TextField
@@ -147,7 +147,7 @@ function App() {
             sx={{
               fontSize: "1rem",
               fontWeight: "bold",
-              width: "20%",
+              width: "50%",
             }}
           />
           {/* <TextField
@@ -183,7 +183,7 @@ function App() {
             sx={{
               fontSize: "1rem",
               fontWeight: "bold",
-              width: "20%",
+              width: "50%",
             }}
           />
           {/* <TextField
