@@ -186,18 +186,6 @@ function App() {
             }}
           />
         </div>
-
-        <div className="total">
-          <h2>Total</h2>
-          <p>
-            R${" "}
-            {(
-              (weightFraudinha * priceFraudinha) / 1000 +
-              (weightPatinho * pricePatinho) / 1000 +
-              (weightCapa * priceCapa) / 1000
-            ).toFixed(2)}
-          </p>
-        </div>
       </div>
     </>
   );
