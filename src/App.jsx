@@ -17,9 +17,9 @@ function App() {
   const [weightPatinho, setWeightPatinho] = useState(0);
   const [weightCapa, setWeightCapa] = useState(0);
 
-  const [priceFraudinha, setPriceFraudinha] = useState(0);
-  const [pricePatinho, setPricePatinho] = useState(0);
-  const [priceCapa, setPriceCapa] = useState(0);
+  // const [priceFraudinha, setPriceFraudinha] = useState(0);
+  // const [pricePatinho, setPricePatinho] = useState(0);
+  // const [priceCapa, setPriceCapa] = useState(0);
 
   useEffect(() => {
     setWeightFraudinha((weightBuguers * numberBuguers * 0.3).toFixed(2));
@@ -105,7 +105,7 @@ function App() {
           <p>Fraudinha</p>
 
           <Chip label={`${weightFraudinha} g`} color="primary" />
-          <TextField
+          {/* <TextField
             id="filled-basic"
             label="Valor Kg"
             variant="filled"
@@ -127,14 +127,14 @@ function App() {
                 color: "#1976d2", // cor do label flutuante
               },
             }}
-          />
+          /> */}
         </div>
 
         <div className="meat_info">
           <p>Patinho</p>
 
           <Chip label={`${weightPatinho} g`} color="primary" />
-          <TextField
+          {/* <TextField
             id="filled-basic"
             label="Valor Kg"
             variant="filled"
@@ -156,13 +156,13 @@ function App() {
                 color: "#1976d2", // cor do label flutuante
               },
             }}
-          />
+          /> */}
         </div>
 
         <div className="meat_info">
           <p>Capa de Filé</p>
           <Chip label={`${weightCapa} g`} color="primary" />
-          <TextField
+          {/* <TextField
             id="filled-basic"
             label="Valor Kg"
             variant="filled"
@@ -184,7 +184,7 @@ function App() {
                 color: "#1976d2", // cor do label flutuante
               },
             }}
-          />
+          /> */}
         </div>
       </div>
     </>
