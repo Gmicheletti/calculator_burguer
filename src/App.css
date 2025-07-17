@@ -3,7 +3,9 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow: auto;
 }
 
-
-#app{}
+.group_menu{
+  overflow-x: scroll;
+}

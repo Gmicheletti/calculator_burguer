@@ -17,12 +17,13 @@ export default function App() {
     <>
       <div id="app">
         <h1>CalcBurguer</h1>
-
+        <div className="group_menu">
         <ButtonGroup  variant="contained" aria-label="Basic button group">
-          <Button onClick={() => changeMenu("calc")}>Calculadora</Button>
+          <Button  onClick={() => changeMenu("calc")}>Calculadora</Button>
           <Button onClick={() => changeMenu("guests")}>Convidados</Button>
-          <Button onClick={() => changeMenu("shopping")}>Compras</Button>
+          <Button  onClick={() => changeMenu("shopping")}>Compras</Button>
         </ButtonGroup>
+        </div>
 
         {menu === "calc" && <Calc />}
         {menu === "guests" && <ListPeople />}
