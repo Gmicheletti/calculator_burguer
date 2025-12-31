@@ -12,10 +12,11 @@ import "./Calc.css";
 export default function Calc() {
   const [numberBurguers, setNumberBurguers] = useState(0);
   const [weightBurguers, setweightBurguers] = useState(0);
-  const [typeBlend, setTypeBlend] = useState("");
+  const [typeBlend, setTypeBlend] = useState("original");
 
   const stored_numberBurguers = localStorage.getItem("numberBurguers");
   const stored_weightBurguers = localStorage.getItem("weightBurguers");
+  const stored_typeBlend = localStorage.getItem("typeBlend");
 
   const [weightB1Fraldinha, setWeightB1Fraldinha] = useState(0);
   const [weightB1Patinho, setWeightB1Patinho] = useState(0);
@@ -37,6 +38,9 @@ export default function Calc() {
 
         const stored_weight = JSON.parse(stored_weightBurguers);
         setweightBurguers(stored_weight);
+
+        const stored_type = JSON.parse(stored_typeBlend);
+        setTypeBlend(stored_type);
       }
     } catch (error) {
       console.error("Erro ao ler localStorage:", error);
@@ -58,8 +62,10 @@ export default function Calc() {
 
     localStorage.setItem("numberBurguers", JSON.stringify(numberBurguers));
     localStorage.setItem("weightBurguers", JSON.stringify(weightBurguers));
-    setTypeBlend("original");
-  }, [numberBurguers, weightBurguers]);
+    localStorage.setItem("typeBlend", JSON.stringify(typeBlend));
+
+    
+  }, [numberBurguers, weightBurguers, typeBlend]);
 
   return (
     <>
@@ -300,7 +306,7 @@ export default function Calc() {
             </div>
           </>
         ) : (
-          <div>Erro</div>
+          <div>Selecione o tipo do Blend</div>
         )}
       </div>
     </>
