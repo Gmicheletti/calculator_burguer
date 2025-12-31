@@ -30,7 +30,7 @@ export default function App() {
         {menu === "guests" && <ListPeople />}
         {menu === "shopping" && <Shopping />}
       </div>
+      <Analytics />
     </>
   );
 }
-Analytics();
