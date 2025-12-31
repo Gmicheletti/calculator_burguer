@@ -12,34 +12,53 @@ import "./Calc.css";
 export default function Calc() {
   const [numberBurguers, setNumberBurguers] = useState(0);
   const [weightBurguers, setweightBurguers] = useState(0);
+  const [typeBlend, setTypeBlend] = useState("");
+
   const stored_numberBurguers = localStorage.getItem("numberBurguers");
   const stored_weightBurguers = localStorage.getItem("weightBurguers");
 
-  const [weightFraldinha, setWeightFraldinha] = useState(0);
-  const [weightPatinho, setWeightPatinho] = useState(0);
-  const [weightCapa, setWeightCapa] = useState(0);
+  const [weightB1Fraldinha, setWeightB1Fraldinha] = useState(0);
+  const [weightB1Patinho, setWeightB1Patinho] = useState(0);
+  const [weightB1Capa, setWeightB1Capa] = useState(0);
 
+  const [weightB2Acem, setWeightB2Acem] = useState(0);
+  const [weightB2Peito, setWeightB2Peito] = useState(0);
+  const [weightB2Fraldinha, setWeightB2Fraldinha] = useState(0);
+
+  const [weightB3Acem, setWeightB3Acem] = useState(0);
+  const [weightB3Peito, setWeightB3Peito] = useState(0);
+  const [weightB3Fraldinha, setWeightB3Fraldinha] = useState(0);
 
   useEffect(() => {
-      try {
-        if (stored_numberBurguers && stored_weightBurguers) {
-          const stored_number = JSON.parse(stored_numberBurguers);
-          setNumberBurguers(stored_number);
+    try {
+      if (stored_numberBurguers && stored_weightBurguers) {
+        const stored_number = JSON.parse(stored_numberBurguers);
+        setNumberBurguers(stored_number);
 
-          const stored_weight = JSON.parse(stored_weightBurguers);
-          setweightBurguers(stored_weight);
-        }
-      } catch (error) {
-        console.error("Erro ao ler localStorage:", error);
+        const stored_weight = JSON.parse(stored_weightBurguers);
+        setweightBurguers(stored_weight);
       }
-    }, []);
+    } catch (error) {
+      console.error("Erro ao ler localStorage:", error);
+    }
+  }, []);
 
   useEffect(() => {
-    setWeightFraldinha((weightBurguers * numberBurguers * 0.3).toFixed(0));
-    setWeightPatinho((weightBurguers * numberBurguers * 0.25).toFixed(0));
-    setWeightCapa((weightBurguers * numberBurguers * 0.45).toFixed(0));
+    setWeightB1Fraldinha((weightBurguers * numberBurguers * 0.3).toFixed(0));
+    setWeightB1Patinho((weightBurguers * numberBurguers * 0.3).toFixed(0));
+    setWeightB1Capa((weightBurguers * numberBurguers * 0.4).toFixed(0));
+
+    setWeightB2Acem((weightBurguers * numberBurguers * 0.5).toFixed(0));
+    setWeightB2Peito((weightBurguers * numberBurguers * 0.3).toFixed(0));
+    setWeightB2Fraldinha((weightBurguers * numberBurguers * 0.2).toFixed(0));
+
+    setWeightB3Acem((weightBurguers * numberBurguers * 0.45).toFixed(0));
+    setWeightB3Peito((weightBurguers * numberBurguers * 0.35).toFixed(0));
+    setWeightB3Fraldinha((weightBurguers * numberBurguers * 0.2).toFixed(0));
+
     localStorage.setItem("numberBurguers", JSON.stringify(numberBurguers));
     localStorage.setItem("weightBurguers", JSON.stringify(weightBurguers));
+    setTypeBlend("original");
   }, [numberBurguers, weightBurguers]);
 
   return (
@@ -112,46 +131,177 @@ export default function Calc() {
           </Select>
         </FormControl>
 
-        <div className="meat_info">
-          <h4>Fraldinha</h4>
-
-          <Chip
-            label={`${weightFraldinha} g`}
-            color="primary"
+        <FormControl
+          variant="filled"
+          fullWidth
+          sx={{
+            backgroundColor: "#1f1f1f", // fundo do select
+            m: 1,
+            width: "100%",
+          }}
+        >
+          <InputLabel
+            id="demo-simple-select-filled-label"
             sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              width: "200px",
+              color: "#fff", // cor do label
             }}
-          />
-        </div>
-
-        <div className="meat_info">
-          <h4>Patinho</h4>
-
-          <Chip
-            label={`${weightPatinho} g`}
-            color="primary"
+          >
+            Tipo do Blend
+          </InputLabel>
+          <Select
+            labelId="demo-simple-select-filled-label"
+            id="demo-simple-select-filled"
+            value={typeBlend}
+            label="Tipo do Blend"
+            onChange={(e) => setTypeBlend(e.target.value)}
             sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              width: "200px",
+              color: "#fff", // texto selecionado
+              height: "70px", // altura do campo
+              paddingTop: "5px", // para centralizar o texto verticalmente
             }}
-          />
-        </div>
+            // Para mudar cor do ícone (setinha do select)
+            IconComponentProps={{
+              style: { color: "#fff" },
+            }}
+          >
+            <MenuItem value={"original"}>Blend Original</MenuItem>
+            <MenuItem value={"grelha"}>Blend Grelha</MenuItem>
+            <MenuItem value={"smash"}>Blend Smash</MenuItem>
+          </Select>
+        </FormControl>
 
-        <div className="meat_info">
-          <h4>Capa de Filé</h4>
-          <Chip
-            label={`${weightCapa} g`}
-            color="primary"
-            sx={{
-              fontSize: "1rem",
-              fontWeight: "bold",
-              width: "200px",
-            }}
-          />
-        </div>
+        {typeBlend === "original" ? (
+          <>
+            <div className="meat_info">
+              <h4>Fraldinha</h4>
+
+              <Chip
+                label={`${weightB1Fraldinha} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+
+            <div className="meat_info">
+              <h4>Patinho</h4>
+
+              <Chip
+                label={`${weightB1Patinho} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+
+            <div className="meat_info">
+              <h4>Capa de Filé</h4>
+              <Chip
+                label={`${weightB1Capa} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+          </>
+        ) : typeBlend === "grelha" ? (
+          <>
+            <div className="meat_info">
+              <h4>Acém</h4>
+
+              <Chip
+                label={`${weightB2Acem} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+
+            <div className="meat_info">
+              <h4>Peito</h4>
+
+              <Chip
+                label={`${weightB2Peito} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+
+            <div className="meat_info">
+              <h4>Fraldinha</h4>
+              <Chip
+                label={`${weightB2Fraldinha} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+          </>
+        ) : typeBlend === "smash" ? (
+          <>
+            <div className="meat_info">
+              <h4>Acém</h4>
+
+              <Chip
+                label={`${weightB3Acem} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+
+            <div className="meat_info">
+              <h4>Peito</h4>
+
+              <Chip
+                label={`${weightB3Peito} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+
+            <div className="meat_info">
+              <h4>Fraldinha</h4>
+              <Chip
+                label={`${weightB3Fraldinha} g`}
+                color="primary"
+                sx={{
+                  fontSize: "1rem",
+                  fontWeight: "bold",
+                  width: "200px",
+                }}
+              />
+            </div>
+          </>
+        ) : (
+          <div>Erro</div>
+        )}
       </div>
     </>
   );
