@@ -5,6 +5,7 @@ import ListPeople from "./list/ListGuests";
 import Shopping from "./shopping/Shopping";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
+import { Analytics } from "@vercel/analytics/react"
 
 export default function App() {
   const [menu, setMenu] = useState("calc");
@@ -32,3 +33,4 @@ export default function App() {
     </>
   );
 }
+Analytics();
