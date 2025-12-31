@@ -36,8 +36,8 @@ export default function Calc() {
 
   useEffect(() => {
     setWeightFraldinha((weightBurguers * numberBurguers * 0.3).toFixed(0));
-    setWeightPatinho((weightBurguers * numberBurguers * 0.25).toFixed(0));
-    setWeightCapa((weightBurguers * numberBurguers * 0.45).toFixed(0));
+    setWeightPatinho((weightBurguers * numberBurguers * 0.3).toFixed(0));
+    setWeightCapa((weightBurguers * numberBurguers * 0.4).toFixed(0));
     localStorage.setItem("numberBurguers", JSON.stringify(numberBurguers));
     localStorage.setItem("weightBurguers", JSON.stringify(weightBurguers));
   }, [numberBurguers, weightBurguers]);
